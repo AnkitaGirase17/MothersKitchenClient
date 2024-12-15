@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Visual="Material"
+             Title="My Profile"
+             x:Class="MothersKitchenClient.onLogin.ProfilePage">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Frame Padding="5">
+                <StackLayout>
+                    <Frame>
+                        <Entry x:Name="Name_entry" Text="{Binding CNAME}" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Mobile:" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                        <Frame HorizontalOptions="FillAndExpand">
+                            <Entry x:Name="mobile_entry" Text="{Binding MOBILE}" IsEnabled="False" FontSize="Large" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
+                        </Frame>
+                    </StackLayout>
+
+                    <Button Text="Update Personal Information"/>
+
+                </StackLayout>
+            </Frame>
+            <Label Text="Delivery Address" Padding="2" FontSize="Medium" FontAttributes="Bold"/>
+            <Frame Padding="5">
+                <StackLayout>
+                    <Label x:Name="Cname_entry" Text="{Binding CNAME}" FontSize="Header" FontAttributes="Bold" />
+                    <Label x:Name="Adl1" TextColor="LightGray"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="City: " TextColor="LightGray"/>
+                        <Label Text="{Binding CITY}" x:Name="city_entry" TextColor="LightGray"/>
+                        <Label Text="State:" HorizontalOptions="EndAndExpand" TextColor="LightGray"/>
+                        <Label Text="{Binding STATE}" x:Name="state_entry" TextColor="LightGray"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="PIN:" TextColor="LightGray"/>
+                        <Label Text="{Binding PIN}" x:Name="pin_entry" TextColor="LightGray"/>
+                        <Label Text="Mobile:" HorizontalOptions="EndAndExpand" TextColor="LightGray"/>
+                        <Label Text="{Binding MOBILE}" x:Name="mobile1_entry" VerticalTextAlignment="Center" TextColor="LightGray"/>
+                    </StackLayout>
+                    <Frame BackgroundColor="Gray">
+                        <Label Text="Defult" x:Name="status_entry" FontSize="Medium" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <Button x:Name="Add_Address" Text="+ Add new Address" Clicked="Add_Address_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

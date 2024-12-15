@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Visual="Material"
+             Title="Your Order History"
+             x:Class="MothersKitchenClient.onLogin.OrdersList">
+    <StackLayout>
+        <ListView x:Name="OrderListView"  HasUnevenRows="True" SeparatorVisibility="None" IsPullToRefreshEnabled="True" ItemTapped="OrderListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5" BorderColor="LightGray">
+                            <Grid>
+
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="350"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Frame BorderColor="Transparent" Padding="5">
+                                    <Image Source="{Binding ICON}" WidthRequest="350" HeightRequest="350" Aspect="Fill" HorizontalOptions="CenterAndExpand"/>
+                                </Frame>
+
+                                <StackLayout Margin="10,0,0,10" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="1">
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <Label Text="{Binding IID}" IsVisible="FALSE" FontAttributes="Bold" FontFamily="RB"/>
+                                        <Label Text="{Binding CATID}" IsVisible="FALSE" FontAttributes="Bold" FontFamily="RB"/>
+                                        <Label Text="{Binding INAME}" FontAttributes="Bold" FontFamily="RB"/>
+                                        <Label Text="{Binding BRIEF}" FontSize="Micro" />
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                                            <Label Text="₹" TextColor="Green" FontAttributes="Bold" Margin="0,0,-5,0"/>
+                                            <Label Text="{Binding SP}" TextColor="Green" FontAttributes="Bold"/>
+                                            <Label Text="M.R.P. ₹" HorizontalOptions="EndAndExpand" TextColor="Gray" FontSize="Micro" FontAttributes="Bold" VerticalOptions="CenterAndExpand" Margin="0,0,-5,0"/>
+                                            <Label Text="{Binding MRP}" VerticalOptions="CenterAndExpand" Margin="0,0,5,0" FontSize="Micro" TextColor="Gray"  />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+
+                        </Frame>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+</ContentPage>

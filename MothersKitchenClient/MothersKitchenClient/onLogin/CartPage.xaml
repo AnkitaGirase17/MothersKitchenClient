@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MothersKitchenClient.onLogin.CartPage">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Frame Padding="5">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Ordered ID" FontSize="Body" FontAttributes="Bold"/>
+                    <Label Text="" x:Name="OID_entry" FontSize="Body" FontAttributes="Bold" />
+                    <Label Text="Total" HorizontalOptions="EndAndExpand"  FontSize="Body"/>
+                    <Label Text="₹" FontSize="Body"/>
+                    <Label Text="" FontSize="Body" x:Name="Total_amt" TextColor="Green"/>
+                </StackLayout>
+            </Frame>
+            <ListView x:Name="CartItemsListView"  HasUnevenRows="True" SeparatorVisibility="None" IsPullToRefreshEnabled="True" ItemTapped="ItemsListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="5" BorderColor="LightGray">
+                                <Grid>
+
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="350"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame BorderColor="Transparent" Padding="5">
+                                        <Image Source="{Binding ICON}" WidthRequest="350" HeightRequest="350" Aspect="Fill" HorizontalOptions="CenterAndExpand"/>
+                                    </Frame>
+
+                                    <StackLayout Margin="10,0,0,10" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="1">
+                                        <StackLayout VerticalOptions="CenterAndExpand">
+                                            <Label Text="{Binding IID}" IsVisible="FALSE" FontAttributes="Bold" FontFamily="RB"/>
+                                            <Label Text="{Binding CATID}" IsVisible="FALSE" FontAttributes="Bold" FontFamily="RB"/>
+                                            <Label Text="{Binding INAME}" FontAttributes="Bold" FontFamily="RB"/>
+                                            <Label Text="{Binding BRIEF}" FontSize="Micro" />
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                                                <Label Text="₹" TextColor="Green" FontAttributes="Bold" Margin="0,0,-5,0"/>
+                                                <Label Text="{Binding SP}" TextColor="Green" FontAttributes="Bold"/>
+                                                <Label Text="M.R.P. ₹" HorizontalOptions="EndAndExpand" TextColor="Gray" FontSize="Micro" FontAttributes="Bold" VerticalOptions="CenterAndExpand" Margin="0,0,-5,0"/>
+                                                <Label Text="{Binding MRP}" VerticalOptions="CenterAndExpand" Margin="0,0,5,0" FontSize="Micro" TextColor="Gray"  />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+
+                            </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+          
+
+            <Button x:Name="Placeorder_btn" Text="PLace Order" Clicked="Placeorder_btn_Clicked"  BackgroundColor="Green" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
